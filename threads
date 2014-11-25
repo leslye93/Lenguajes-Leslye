@@ -1,0 +1,30 @@
+public class AplicacionThreads {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        //creamos el threads  como la clase interna anonima
+        Thread t1=new  Thread(new Runnable(){
+            @Override 
+            public  void run(){
+                while(true){
+                try{
+                    Calendar cal=Calendar.getInstance();
+                    int hora=cal.get(Calendar.HOUR_OF_DAY);
+                    int min=cal.get(Calendar.MINUTE);
+                    int seg=cal.get(Calendar.SECOND);
+                    System.out.println(hora+":"+min+":"+seg);
+                    Thread.sleep(1000);
+                    
+                }catch(Exception e){}
+                
+                }//aqui termina el while
+            }
+        });
+        System.out.println("este es solo el metodo main");
+        t1.start(); 
+    }
+    
+}
